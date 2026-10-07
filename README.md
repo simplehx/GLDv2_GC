@@ -6,6 +6,13 @@ Geographic coordinates corresponding to the Google Landmarks Dataset v2
 * Data collection time: October 7, 2026
 * GLDv2_CG contains geographic coordinate data for 182,824 landmarks, accounting for 182,824/203,094 ≈ 90.01% of the original data.
 
+## Data Collection API
+| Endpoint | Method | Purpose |
+|---|---|---|
+| Wikimedia Commons: `https://commons.wikimedia.org/w/api.php` | `action=query`, `prop=pageprops` | Given an input Category page, retrieves its `wikibase_item` (Wikidata QID). |
+| Wikidata: `https://www.wikidata.org/w/api.php` | `action=wbgetentities`, `props=claims` | Retrieves entity claims in batches, identifies the corresponding topic via **P301**, and then reads the latitude and longitude from **P625** of either the topic entity or the original entity. |
+
+
 ## GLDv2_CG Data Sample
 
 | landmark_id | category | wikidata_id | latitude | longitude |
